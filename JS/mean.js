@@ -593,7 +593,7 @@ async function setLanguage(lang) {
     }
 
     // --- 4. تخزين الاختيار (اختياري) ---
-    localStorage.setItem('userLanguage', lang);
+    // localStorage.setItem('userLanguage', lang);
 }
 
 // --- 5. ربط الأزرار بالأحداث ---
@@ -606,7 +606,7 @@ langToggleButtonEN.addEventListener('click', () => {
 });
 
 // --- 6. (اختياري) التحقق من وجود لغة مخزنة عند فتح الصفحة ---
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('userLanguage') || 'en'; // الافتراضي هو 'en'
-    setLanguage(savedLang);
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     const savedLang = localStorage.getItem('userLanguage') || 'en'; // الافتراضي هو 'en'
+//     setLanguage(savedLang);
+// });

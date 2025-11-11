@@ -1325,3 +1325,20 @@ body {
         padding: 16px; /* تقليل هوامش البطاقة على الموبايل */
     }
   }
+
+
+.image-icon{
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 2rem auto 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+.image-icon .my-image{
+  width: 100%;
+}
