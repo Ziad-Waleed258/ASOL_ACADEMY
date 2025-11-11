@@ -1153,3 +1153,92 @@ body {
   font-weight: bold;
   color: var(--text-primary);
 }
+/* تصميم الزر (Label) */
+.toggle-btn {
+    outline: none;
+    outline-offset: 2px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+
+/* ------------------------------------- */
+/* !! الجزء الأهم (خدعة الـ CSS) !! */
+/* ------------------------------------- */
+
+/* 1. إخفاء الـ checkbox عن العرض تماماً */
+.card-toggle-input {
+  display: none;
+}
+
+/* 2. إخفاء المحتوى التفصيلي افتراضياً */
+.card-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+  padding-top: 0;
+}
+
+/* 3. إظهار المحتوى عند الضغط (عندما يكون الـ checkbox فعالاً) */
+/*
+  هذا السطر يعني:
+  "ابحث عن .card-details الذي هو "شقيق" (~) لـ .card-toggle-input الذي في حالة :checked"
+*/
+.card-toggle-input:checked ~ .card-details {
+  max-height: 500px; /* رقم كبير كافي لاحتواء النص */
+  opacity: 1;
+  padding-top: 15px;
+}
+
+/* 4. (اختياري) تبديل نص الزر */
+.toggle-btn .hide-text {
+  display: none;
+}
+.toggle-btn .show-text {
+  display: inline;
+}
+
+/* عندما يتم الضغط، اعكس حالة نصوص الزر */
+.card-toggle-input:checked ~ .toggle-btn .hide-text {
+  display: inline;
+}
+.card-toggle-input:checked ~ .toggle-btn .show-text {
+  display: none;
+}
+
+.section-padding .content-box{
+  display: flex;
+  justify-content: center; /* لتوسيط المحتوى أفقياً */
+  align-items: center;     /* لتوسيط المحتوى عمودياً */
+  
+  /* 2. إعطاء الصفحة ارتفاع الشاشة بالكامل */
+  min-height: 100vh; /* 100vh تعني 100% من ارتفاع شاشة العرض */
+  
+  /* 3. تنسيقات جمالية */
+  font-family: 'Cairo', sans-serif; /* استخدام الخط الذي استوردناه */
+   /* خلفية داكنة (مثل الصورة) */
+  
+  /* 4. هوامش أمان للشاشات الصغيرة جداً */
+  padding: 20px;
+}
+
+.section-padding .content-box .box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+.section-padding .content-box .box img{
+  width: 100%; /* تجعل الصورة تملأ عرض الحاوية (الـ 400px كحد أقصى) */
+  height: auto; /* يحافظ على نسبة أبعاد الصورة الأصلية */
+  border-radius: 12px; 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.section-padding .content-box .box .certification-badge a {
+  text-decoration: none;
+  color: white;
+}
