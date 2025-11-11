@@ -1188,7 +1188,7 @@ body {
   "ابحث عن .card-details الذي هو "شقيق" (~) لـ .card-toggle-input الذي في حالة :checked"
 */
 .card-toggle-input:checked ~ .card-details {
-  max-height: 500px; /* رقم كبير كافي لاحتواء النص */
+  max-height: 2000px; /* رقم كبير كافي لاحتواء النص */
   opacity: 1;
   padding-top: 15px;
 }
@@ -1242,3 +1242,86 @@ body {
   text-decoration: none;
   color: white;
 }
+
+.videos-wrapper {
+    /* استخدام Grid لتقسيم المساحة */
+    display: grid;
+    
+    /* إنشاء عمودين متساويين في العرض */
+    grid-template-columns: repeat(2, 1fr); 
+    
+    /* مسافة (فجوة) بين العمودين */
+    gap: 20px; 
+}
+
+/* --- 2. تنسيق حاوية كل فيديو (الفيديو + الوصف) --- */
+.video-container {
+    width: 100%; /* تأخذ الحاوية عرض العمود بالكامل */
+    
+    /* (اختياري) إضافة ظل خفيف لكل حاوية فيديو */
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden; /* لإخفاء الزوايا الحادة للفيديو */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- 3. تنسيق الفيديو نفسه --- */
+.video-container video {
+    /* جعل الفيديو متجاوباً (الأهم) */
+    width: 100%; 
+    height: auto;
+    
+    /* يضمن عدم وجود مسافة بيضاء غريبة تحت الفيديو */
+    display: block; 
+}
+
+/* --- 4. تنسيق الوصف (Caption) --- */
+.video-caption {
+    padding: 12px 16px; /* هوامش داخلية للوصف */
+    font-size: 14px;
+    color: #444;
+    text-align: center; /* توسيط النص */
+    line-height: 1.5;
+    background-color: #fff; /* خلفية بيضاء للوصف */
+}
+
+.media-gallery {
+    /* 1. استخدام CSS Grid */
+    display: grid;
+    
+    /* 2. إنشاء عمودين متساويين */
+    grid-template-columns: repeat(2, 1fr); /* (1fr) تعني جزء واحد متساوي */
+    
+    /* 3. فجوة (مسافة) بين العناصر */
+    gap: 16px;
+}
+
+/* --- تنسيق الصور والفيديوهات داخل المعرض --- */
+.media-gallery img {
+    width: 100%; /* تجعل العنصر يملأ عرض العمود المخصص له */
+    height: auto; /* يحافظ على نسبة الأبعاد */
+    border-radius: 8px; /* حواف دائرية */
+    background-color: #eee; /* خلفية للعناصر قبل تحميلها */
+}
+
+/* ------------------------------------------- */
+/* ---  الاستجابة للشاشات (Responsive)  --- */
+/* ------------------------------------------- */
+
+/* عندما يكون عرض الشاشة 600 بكسل أو أقل (مثل الموبايل) */
+@media (max-width: 600px) {
+    .media-gallery {
+        grid-template-columns: 1fr; /* تغيير التقسيم إلى عمود واحد */
+        gap: 12px; /* تقليل المسافة قليلاً */
+    }
+    /* تغيير تنسيق حاوية الفيديوهات لتصبح عموداً واحداً */
+    .videos-wrapper {
+        grid-template-columns: 1fr; /* عمود واحد فقط */
+        gap: 16px; /* تقليل المسافة بين الفيديوهين */
+    }
+
+    .card {
+        padding: 16px; /* تقليل هوامش البطاقة على الموبايل */
+    }
+  }
